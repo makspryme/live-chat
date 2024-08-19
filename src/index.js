@@ -7,7 +7,6 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {
   GoogleAuthProvider,
-  connectAuthEmulator,
   getAuth,
 } from "firebase/auth";
 import { Firestore, getFirestore } from "firebase/firestore";
@@ -29,9 +28,6 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 
-if (window.location.hostname === "localhost") {
-  connectAuthEmulator(auth, "http://localhost:9099");
-}
 // const analytics = getAnalytics(app);
 
 export const AuthContext = createContext();
